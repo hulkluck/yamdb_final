@@ -1,5 +1,5 @@
 import datetime as dt
-import uuid
+# import uuid
 
 from django.core import validators
 from rest_framework import serializers
