@@ -10,12 +10,11 @@ from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-
 from reviews.models import Category, Genre, Review, Title, User
+
 from api.filters import TitleFilter
-from api.permissions import (IsAdmin,
-                             IsAdminOrReadOnly,
-                             GetOrAuthorOrAdminOrModerator)
+from api.permissions import (GetOrAuthorOrAdminOrModerator, IsAdmin,
+                             IsAdminOrReadOnly)
 from api.serializers import (AuthSerializer, CategorySerializer,
                              CommentSerializer, GenreSerializer,
                              ProfileSerializer, ReviewSerializer,
