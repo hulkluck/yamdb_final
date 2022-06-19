@@ -1,6 +1,6 @@
 import datetime as dt
+import uuid
 
-# import uuid
 from django.core import validators
 from rest_framework import serializers
 from rest_framework.relations import SlugRelatedField
@@ -35,14 +35,14 @@ class UserSerializer(serializers.ModelSerializer):
             'role')
         model = User
 
-    # def create(self, validated_data):
-    #     email = validated_data['email']
-    #     confirmation_code = str(uuid.uuid3(uuid.NAMESPACE_X500, email))
-    #     user = User.objects.create(
-    #         **validated_data,
-    #         confirmation_code=confirmation_code
-    #     )
-    #     return user
+    def create(self, validated_data):
+        email = validated_data['email']
+        confirmation_code = str(uuid.uuid3(uuid.NAMESPACE_X500, email))
+        user = User.objects.create(
+            **validated_data,
+            confirmation_code=confirmation_code
+        )
+        return user
 
     def validate_username(self, name):
         if name == 'me':
