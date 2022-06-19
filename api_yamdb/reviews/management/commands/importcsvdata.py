@@ -26,9 +26,9 @@ DICT = {
 }
 
 
-def CsvSerializer(CsvData, model):
+def csvserializer(csvdata, model):
     objs = []
-    for row in CsvData:
+    for row in csvdata:
         for field in FOREIGN_KEY_FIELDS:
             if field in row:
                 row[f'{field}_id'] = row[field]
@@ -48,7 +48,7 @@ class Command(BaseCommand):
                     newline='',
                     encoding='utf8'
                 ) as csv_file:
-                    CsvSerializer(csv.DictReader(csv_file), model)
+                    csvserializer(csv.DictReader(csv_file), model)
             except Exception as error:
                 CommandError(error)
         logging.info('Successfully loaded all data into database')
