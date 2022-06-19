@@ -1,3 +1,5 @@
+import uuid
+
 from api.filters import TitleFilter
 from api.permissions import (GetOrAuthorOrAdminOrModerator, IsAdmin,
                              IsAdminOrReadOnly)
@@ -5,7 +7,7 @@ from api.serializers import (AuthSerializer, CategorySerializer,
                              CommentSerializer, GenreSerializer,
                              ProfileSerializer, ReviewSerializer,
                              SignUpSerializer, TitleSerializer, UserSerializer)
-import uuid
+
 from django.conf import settings
 from django.core.mail import send_mail
 from django.db.models import Avg
@@ -17,8 +19,6 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from reviews.models import Category, Genre, Review, Title, User
-
-
 
 
 class ListCreateDestroyViewSet(mixins.CreateModelMixin,

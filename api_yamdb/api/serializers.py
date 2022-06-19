@@ -42,7 +42,7 @@ class UserSerializer(serializers.ModelSerializer):
             **validated_data,
             confirmation_code=confirmation_code
         )
-
+        return user
 
     def validate_username(self, name):
         if name == 'me':
