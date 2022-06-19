@@ -36,10 +36,10 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
 
     def create(self, validated_data):
-        email = validated_data['email']
-        confirmation_code = str(uuid.uuid3(uuid.NAMESPACE_X500, email))
+        # email = validated_data['email']
+        confirmation_code = str(uuid.uuid3(uuid.NAMESPACE_X500, validated_data['email']))
         user = User.objects.create(
-            # **validated_data,
+            **validated_data,
             confirmation_code=confirmation_code
         )
         return user
