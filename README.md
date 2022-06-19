@@ -5,10 +5,8 @@
 ![example workflow](https://github.com/hulkluck/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
 
 ***
-
 ### __Описание__
 ***
-
 #### Технологии:
 1. [Django](https://www.djangoproject.com)
 2. [Django Rest Framework](https://www.django-rest-framework.org)
