@@ -8,6 +8,7 @@ services:
     env_file:
       - ./.env
   web:
+    container_name: yamdb_final_web
     image: hulkluck/api_yamdb:latest
     restart: always
     volumes:
@@ -19,6 +20,7 @@ services:
       - ./.env
 
   nginx:
+    container_name: yamdb_final_nginx
     image: nginx:1.21.3-alpine
 
     ports:
