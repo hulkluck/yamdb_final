@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.9'
 
 services:
   db:
@@ -8,7 +8,7 @@ services:
     env_file:
       - ./.env
   web:
-    image: hulkluck/infra_actions:latest
+    image: hulkluck/api_yamdb:latest
     restart: always
     volumes:
       - static_value:/app/static/
@@ -17,14 +17,20 @@ services:
       - db
     env_file:
       - ./.env
-  ginx:
+
+  nginx:
     image: nginx:1.21.3-alpine
+
     ports:
       - "80:80"
+
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+
       - static_value:/var/html/static/
+
       - media_value:/var/html/media/
+
     depends_on:
       - web
 
