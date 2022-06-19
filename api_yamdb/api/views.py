@@ -1,4 +1,5 @@
 import uuid
+
 from django.conf import settings
 from django.core.mail import send_mail
 from django.db.models import Avg
@@ -10,6 +11,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from reviews.models import Category, Genre, Review, Title, User
+
 from api.filters import TitleFilter
 from api.permissions import (GetOrAuthorOrAdminOrModerator, IsAdmin,
                              IsAdminOrReadOnly)
@@ -41,7 +43,7 @@ class UserViewSet(viewsets.ModelViewSet):
         permission_classes=(IsAuthenticated,),
         serializer_class=ProfileSerializer
     )
-    def set_profile(self, request, pk=None):
+    def set_profile(self, request):
         instance = self.request.user
         serializer = self.get_serializer(instance)
         if self.request.method == 'PATCH':
