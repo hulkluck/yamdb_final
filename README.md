@@ -1,7 +1,6 @@
 # API_YaMDB
 
 ***
-
 # WORKFLOW
 
 ![example workflow](https://github.com/hulkluck/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg)
