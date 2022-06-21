@@ -8,7 +8,6 @@
 ***
 ### __Описание__
 ***
-
 #### Технологии
 
 1. [Django](https://www.djangoproject.com)
